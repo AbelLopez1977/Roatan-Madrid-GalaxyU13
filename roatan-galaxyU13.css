@@ -81,32 +81,32 @@ body {
 
 .story-content p{
     background-color: #16eeea;
-    display: flex;
-    height: 30vh;
+    padding: 20px;
+    min-height: 15vh;
     border-radius: 0px 25px 50px 50px;   
 }
 
 .story-content2 p{
-    background-color: #fafa95;
-    display: flex;
-    height: 15vh;
+  background-color: #fafa95;
+    padding: 20px;
+    min-height: 15vh;
     border-radius: 0px 25px 50px 50px;   
 }
 
 .comentario1 p{
-    background-color: #44e8f7;
-    display: flex;
-    height: 33vh;
-    width: 33vh;
-    border-radius: 0px 50px 50px 0px;   
+  background-color: #44e8f7;
+    padding: 20px;
+    width: 100%; /* Cambiado de 33vh a 100% para que se adapte al ancho móvil */
+    max-width: 350px; /* Evita que se estire infinito en computadora */
+    border-radius: 0px 50px 50px 0px;     
 }
 
 .comentario2 p{
-    background-color: #f488da;
-    display: flex;
-    height: 33vh;
-    width: 33vh;
-    border-radius: 25px;   
+   background-color: #f488da;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 25px;     
 }
 
 /* Botones */
