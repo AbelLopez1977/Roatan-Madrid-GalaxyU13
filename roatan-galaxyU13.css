@@ -1,0 +1,359 @@
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #bde4d7;
+    color: #333;
+}
+
+.lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro translúcido */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Imagen expandida */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+/* Botón para cerrar (X) */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+
+/* Clases activas para la animación de apertura */
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+/* Hero / Banner */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('rfotos/banner-roatan.webp') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; margin-bottom: 20px; }
+
+.story-content p{
+    background-color: #16eeea;
+    display: flex;
+    height: 30vh;
+    border-radius: 0px 25px 50px 50px;   
+}
+
+.story-content2 p{
+    background-color: #fafa95;
+    display: flex;
+    height: 15vh;
+    border-radius: 0px 25px 50px 50px;   
+}
+
+.comentario1 p{
+    background-color: #44e8f7;
+    display: flex;
+    height: 33vh;
+    width: 33vh;
+    border-radius: 0px 50px 50px 0px;   
+}
+
+.comentario2 p{
+    background-color: #f488da;
+    display: flex;
+    height: 33vh;
+    width: 33vh;
+    border-radius: 25px;   
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #e67e22;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background 0.3s;
+}
+.btn-primary:hover { background-color: #d35400; }
+
+/* Sección Donaciones */
+.donation-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+.payment-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.btn-pay {
+    display: inline-block;
+    padding: 12px 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.paypal { background-color: #003087; }
+.paypal:hover { background-color: #001c4f; }
+
+/* Galería de Jugadores */
+.gallery-section { padding: 50px 20px; text-align: center; }
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+}
+
+/* Efecto HOVER solicitado */
+.player-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-card:hover {
+    transform: translateY(-10px); /* Eleva la tarjeta */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2); /* Intensifica la sombra */
+}
+
+.player-img-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.player-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto zoom en la foto al pasar el cursor */
+.player-card:hover .player-img {
+    transform: scale(1.1);
+}
+
+.player-card h3 { margin: 15px 0 5px; font-size: 1.2rem; }
+.player-card p { color: #7f8c8d; margin-bottom: 15px; }
+
+/* Ventana Emergente (Modal) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: left;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-donation {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    text-align: center;
+}
+
+/* Media Query para pantallas medianas (Tablets) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem; /* Reduce el tamaño del título en tablets */
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .players-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Tarjetas un poco más pequeñas */
+        gap: 15px;
+    }
+}
+
+/* Media Query para pantallas pequeñas (Celulares) */
+@media (max-width: 480px) {
+    .hero {
+        height: 50vh; /* Reduce el alto del banner para que el usuario vea rápido las donaciones */
+    }
+    .hero h1 {
+        font-size: 1.8rem; /* Título cómodo para leer en vertical */
+    }
+    .payment-buttons {
+        flex-direction: column; /* Alinea los botones de pago uno abajo del otro */
+        align-items: center;
+    }
+    .btn-pay {
+        width: 100%; /* El botón ocupa todo el ancho disponible del celular */
+        max-width: 280px;
+    }
+    .modal-content {
+        padding: 20px;
+        width: 95%; /* Aprovecha mejor el espacio de la pantalla del móvil */
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Botón de acceso rápido a la galería */
+.btn-scroll-gallery {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #2ecc71; /* Verde llamativo */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-scroll-gallery:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* Contenedor de la nueva galería */
+.gallery-section-addon {
+    padding: 60px 20px;
+    background-color: #fcfcfc;
+    border-top: 1px solid #eee;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery-header h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Grid responsivo estilo Masonry/Mosaico */
+.photo-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 240px; /* Altura base uniforme */
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Efectos visuales en las tarjetas de foto */
+.photo-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Algunas fotos ocuparán el doble de ancho para romper la monotonía visual */
+.photo-item:nth-child(3n) {
+    grid-column: span 2;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la foto sin deformarla */
+    transition: transform 0.5s ease;
+}
+
+/* Animaciones al pasar el mouse por encima de la foto */
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.photo-item:hover img {
+    transform: scale(1.08); /* Efecto zoom sutil */
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .photo-masonry {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+    }
+    .photo-item:nth-child(3n) {
+        grid-column: span 1; /* En móviles vuelven a tamaño normal */
+    }
+}
